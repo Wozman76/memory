@@ -1,6 +1,6 @@
 program memo;
 
-uses memoTypes, memoIHM, memoJeu; ///-memoTypes memoJeu
+uses memoIHM; ///-memoTypes memoJeu
 
 
 
