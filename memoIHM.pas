@@ -80,7 +80,7 @@ initGrille(taille, g);
 
 
 
-GotoXY(1,12);
+{GotoXY(1,12);
 
 for y := 1 to taille do
 
@@ -92,7 +92,7 @@ for y := 1 to taille do
 
     writeln;
 
-    end;
+end;}
 
 
 
@@ -166,7 +166,7 @@ for y := 1 to taille do
 
     
 
-GotoXY(1,20);
+{GotoXY(1,20);
 
 for y := 1 to taille do
 
@@ -178,7 +178,7 @@ for y := 1 to taille do
 
     writeln;
 
-    end;    
+end;  }  
 
         
 
