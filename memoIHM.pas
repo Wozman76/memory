@@ -12,13 +12,13 @@ procedure difficulte(var taille : Integer);
 
 procedure jeu(taille : Integer; var score : Integer);
 
-procedure afficherGrille(taille : Integer; g : Grille);
+//procedure afficherGrille(taille : Integer; g : Grille);
 
-procedure tour(taille : Integer; g : Grille; var x1, y1, x2, y2 : Integer);
+//procedure tour(taille : Integer; g : Grille; var x1, y1, x2, y2 : Integer);
 
-procedure saisieCase(taille :Integer; var x, y : Integer);
+//procedure saisieCase(taille :Integer; var x, y : Integer);
 
-procedure retournerCase(x, y : Integer; g : Grille);
+//procedure retournerCase(x, y : Integer; g : Grille);
 
 
 procedure afficherScore(score : Integer);
