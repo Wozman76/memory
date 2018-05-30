@@ -22,11 +22,11 @@ procedure initGrille(taille : Integer; var g : Grille);
 
 var //c : Char;
 
-    i,t : Integer;
+	i,t : Integer;
 
-    x, y : Word;
+	x, y : Word;
 
-    str : String;
+	str : String;
 
 {begin
 
@@ -62,36 +62,36 @@ end;}
 
 begin
 
-    randomize;
+	randomize;
 
-    str := 'aabbccddeeffgghhiijjkkllmmnnooppqqrr';
+	str := 'aabbccddeeffgghhiijjkkllmmnnooppqqrr';
 
-    t := taille;
+	t := taille;
 
 
-    if t = 4 then
+	if t = 4 then
 
-        Delete(str,17,20);
+		Delete(str,17,20);
 
-    
 
-    for x := 1 to t do
 
-        for y := 1 to t do
+	for x := 1 to t do
 
-            begin
+		for y := 1 to t do
 
-                i := random(length(str)) + 1;
+			begin
 
-                g[x][y].lettre := str[i];
+				i := random(length(str)) + 1;
 
-                g[x][y].retourne := False;
+				g[x][y].lettre := str[i];
 
-                Delete(str, i, 1);
+				g[x][y].retourne := False;
 
-    
+				Delete(str, i, 1);
 
-            end;
+
+
+			end;
 
 
 end;
@@ -104,15 +104,15 @@ procedure modifGrille(x1, y1, x2, y2 : Integer; var g : Grille);
 
 begin
 
-    if (g[x1][y1].lettre = g[x2][y2].lettre) and ((x1 <> x2) or (y1 <> y2)) then
+	if (g[x1][y1].lettre = g[x2][y2].lettre) and ((x1 <> x2) or (y1 <> y2)) then
 
-    begin
+	begin
 
-        g[x1][y1].retourne := True;
+		g[x1][y1].retourne := True;
 
-        g[x2][y2].retourne := True;
+		g[x2][y2].retourne := True;
 
-    end;
+	end;
 
 end;
 

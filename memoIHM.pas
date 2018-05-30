@@ -10,15 +10,15 @@ uses memoJeu, memoTypes, crt, sysutils;
 procedure difficulte(var taille : Integer);
 
 
-procedure jeu(taille : Integer; var score : Integer);
+procedure jeu(taille : Integer; var nbCoups : Integer);
 
-//procedure afficherGrille(taille : Integer; g : Grille);
+procedure afficherGrille(taille : Integer; g : Grille);
 
-//procedure tour(taille : Integer; g : Grille; var x1, y1, x2, y2 : Integer);
+procedure tour(taille : Integer; g : Grille; var x1, y1, x2, y2 : Integer);
 
-//procedure saisieCase(taille :Integer; var x, y : Integer);
+procedure saisieCase(taille :Integer; var x, y : Integer);
 
-//procedure retournerCase(x, y : Integer; g : Grille);
+procedure retournerCase(x, y : Integer; g : Grille);
 
 
 procedure afficherScore(score : Integer);
@@ -41,17 +41,17 @@ writeln('Quelle difficulte voulez-vous? (f)acile ou (d)ifficile?');
 
 repeat
 
-    readln(c);
+	readln(c);
 
-    case c of 
+	case c of 
 
-        'f' : taille := 4;
+		'f' : taille := 4;
 
-        'd' : taille := 6;
+		'd' : taille := 6;
 
-    else writeln('Difficulte non valide!')
+	else writeln('Difficulte non valide!')
 
-    end
+	end
 
 until (c = 'f') or (c = 'd');
 
@@ -62,15 +62,13 @@ end;
 
 ////////////////////////////////////////////////////
 
-procedure jeu(taille : Integer; var score : Integer);
+procedure jeu(taille : Integer; var nbCoups : Integer);
 
-var x, y, x1, y1, x2, y2, nbRetourne, nbCoups : Integer;
+var x, y, x1, y1, x2, y2, nbRetourne : Integer;
 
-    g : Grille;
+	g : Grille;
 
 begin
-
-nbRetourne := 0;
 
 nbCoups := 0;
 
@@ -80,19 +78,19 @@ initGrille(taille, g);
 
 
 
-{GotoXY(1,12);
+GotoXY(1,12);
 
 for y := 1 to taille do
 
-    begin
+	begin
 
-    for x := 1 to taille do
+	for x := 1 to taille do
 
-        write(g[x][y].lettre);
+		write(g[x][y].lettre);
 
-    writeln;
+	writeln;
 
-end;}
+end;
 
 
 
@@ -112,27 +110,27 @@ write(nbCoups);
 
 repeat
 
-    nbRetourne := 0;
+	nbRetourne := 0;
 
-    afficherGrille(taille,g);
+	afficherGrille(taille,g);
 
-    tour(taille, g, x1, y1, x2, y2);
+	tour(taille, g, x1, y1, x2, y2);
 
-    modifGrille(x1, y1, x2, y2, g);
+	modifGrille(x1, y1, x2, y2, g);
 
-    for y := 1 to taille do
+	for y := 1 to taille do
 
-        for x := 1 to taille do
+		for x := 1 to taille do
 
-            if g[x][y].retourne then
+			if g[x][y].retourne then
 
-                nbRetourne := nbRetourne + 1;
+				nbRetourne := nbRetourne + 1;
 
-    nbCoups := nbCoups + 1;
+	nbCoups := nbCoups + 1;
 
-    GotoXY(1, taille + 6);
+	GotoXY(1, taille + 6);
 
-    write(nbRetourne);
+	write(nbCoups);
 
 until nbRetourne = taille*taille;
 
@@ -150,21 +148,21 @@ GotoXY(1,1);
 
 for y := 1 to taille do
 
-    begin
+	begin
 
-    for x := 1 to taille do
+	for x := 1 to taille do
 
-        if g[x][y].retourne = True then
+		if g[x][y].retourne = True then
 
-            write(g[x][y].lettre + ' ')
+			write(g[x][y].lettre + ' ')
 
-        else write('# ');
+		else write('# ');
 
-    writeln;
+	writeln;
 
-    end;
+	end;
 
-    
+
 
 {GotoXY(1,20);
 
@@ -178,9 +176,9 @@ for y := 1 to taille do
 
     writeln;
 
-end;  }  
+end;}
 
-        
+
 
 
 
@@ -193,15 +191,15 @@ procedure tour(taille : Integer; g : Grille; var x1, y1, x2, y2 : Integer);
 begin
 
 
-    saisieCase(taille, x1, y1);
+	saisieCase(taille, x1, y1);
 
-    retournerCase(x1, y1, g);
+	retournerCase(x1, y1, g);
 
-    saisieCase(taille, x2, y2);
+	saisieCase(taille, x2, y2);
 
-    retournerCase(x2, y2, g);
+	retournerCase(x2, y2, g);
 
-    sleep(1000);    
+	sleep(1000);
 
 
 
@@ -212,21 +210,21 @@ procedure saisieCase(taille : Integer; var x, y : Integer);
 
 begin
 
-    repeat
+	repeat
 
-        GotoXY(5, taille + 3);
+		GotoXY(5, taille + 3);
 
-        readln(x);
+		readln(x);
 
-    until (x > 0) and (x <= taille);
+	until (x > 0) and (x <= taille);
 
-    repeat
+	repeat
 
-        GotoXY(5, taille + 4);
+		GotoXY(5, taille + 4);
 
-        readln(y);
+		readln(y);
 
-    until (y > 0) and (y <= taille);
+	until (y > 0) and (y <= taille);
 
 end;
 
@@ -235,9 +233,9 @@ procedure retournerCase(x, y : Integer; g : Grille);
 
 begin
 
-    GotoXY(2*x-1,y);
+	GotoXY(2*x-1,y);
 
-    write(g[x][y].lettre);
+	write(g[x][y].lettre);
 
 end;
 

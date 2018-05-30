@@ -7,7 +7,7 @@ uses memoIHM; ///-memoTypes memoJeu
 
 var taille, score : Integer;
 
-    
+
 
 BEGIN
 
@@ -15,6 +15,8 @@ BEGIN
 difficulte(taille);
 
 jeu(taille, score);
+
+afficherScore(score);
 
 
 

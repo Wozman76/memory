@@ -7,9 +7,9 @@ Const MAX = 36;
 
 Type Carte = record
 
-    lettre : Char;
+	lettre : Char;
 
-    retourne : Boolean;
+	retourne : Boolean;
 
 end;
 
