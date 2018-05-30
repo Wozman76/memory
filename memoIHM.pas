@@ -248,6 +248,8 @@ procedure afficherScore(score : Integer);
 
 begin
 
+ClrScr;
+writeln('Score realise : ', score);
 end;
 
 
