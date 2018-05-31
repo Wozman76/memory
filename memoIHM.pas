@@ -37,25 +37,25 @@ var c : Char;
 
 begin
 
-writeln('Quelle difficulte voulez-vous? (f)acile ou (d)ifficile?');
+	writeln('Quelle difficulte voulez-vous? (f)acile ou (d)ifficile?');
 
-repeat
+	repeat
 
-	readln(c);
+		readln(c);
 
-	case c of 
+		case c of 
 
-		'f' : taille := 4;
+			'f' : taille := 4;
 
-		'd' : taille := 6;
+			'd' : taille := 6;
 
-	else writeln('Difficulte non valide!')
+		else writeln('Difficulte non valide!')
 
-	end
+		end;
 
-until (c = 'f') or (c = 'd');
+	until (c = 'f') or (c = 'd');
 
-ClrScr;
+	ClrScr;
 
 end;
 
@@ -70,17 +70,17 @@ var x, y, x1, y1, x2, y2, nbRetourne : Integer;
 
 begin
 
-nbCoups := 0;
+	nbCoups := 0;
 
 
-initGrille(taille, g);
+	initGrille(taille, g);
 
 
 
 
-GotoXY(1,12);
+	GotoXY(1,12);
 
-for y := 1 to taille do
+{for y := 1 to taille do
 
 	begin
 
@@ -90,49 +90,49 @@ for y := 1 to taille do
 
 	writeln;
 
-end;
+end;}
 
 
 
 
-GotoXY(1, taille + 3);
+	GotoXY(1, taille + 3);
 
-write('X = ');
+	write('X = ');
 
-GotoXY(1, taille + 4);
+	GotoXY(1, taille + 4);
 
-write('Y = ');
-
-GotoXY(1, taille + 6);
-
-write(nbCoups);
-
-
-repeat
-
-	nbRetourne := 0;
-
-	afficherGrille(taille,g);
-
-	tour(taille, g, x1, y1, x2, y2);
-
-	modifGrille(x1, y1, x2, y2, g);
-
-	for y := 1 to taille do
-
-		for x := 1 to taille do
-
-			if g[x][y].retourne then
-
-				nbRetourne := nbRetourne + 1;
-
-	nbCoups := nbCoups + 1;
+	write('Y = ');
 
 	GotoXY(1, taille + 6);
 
 	write(nbCoups);
 
-until nbRetourne = taille*taille;
+
+	repeat
+
+		nbRetourne := 0;
+
+		afficherGrille(taille,g);
+
+		tour(taille, g, x1, y1, x2, y2);
+
+		modifGrille(x1, y1, x2, y2, g);
+
+		for y := 1 to taille do
+
+			for x := 1 to taille do
+
+				if g[x][y].retourne then
+
+					nbRetourne := nbRetourne + 1;
+
+		nbCoups := nbCoups + 1;
+
+		GotoXY(1, taille + 6);
+
+		write(nbCoups);
+
+	until nbRetourne = taille*taille;
 
 end;
 
@@ -144,23 +144,23 @@ var x, y : Integer;
 
 begin
 
-GotoXY(1,1);
+	GotoXY(1,1);
 
-for y := 1 to taille do
+	for y := 1 to taille do
 
-	begin
+		begin
 
-	for x := 1 to taille do
+		for x := 1 to taille do
 
-		if g[x][y].retourne = True then
+			if g[x][y].retourne = True then
 
-			write(g[x][y].lettre + ' ')
+				write(g[x][y].lettre + ' ')
 
-		else write('# ');
+			else write('# ');
 
-	writeln;
+		writeln;
 
-	end;
+		end;
 
 
 
@@ -246,8 +246,8 @@ procedure afficherScore(score : Integer);
 
 begin
 
-ClrScr;
-writeln('Score realise : ', score);
+	ClrScr;
+	writeln('Score realise : ', score);
 end;
 
 

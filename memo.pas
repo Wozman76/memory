@@ -12,11 +12,11 @@ var taille, score : Integer;
 BEGIN
 
 
-difficulte(taille);
+	difficulte(taille);
 
-jeu(taille, score);
+	jeu(taille, score);
 
-afficherScore(score);
+	afficherScore(score);
 
 
 
